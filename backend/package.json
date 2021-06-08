@@ -9,7 +9,7 @@
     "start": "node app.js",
     "dev": "nodemon app.js"
   },
-  "author": "sarunmango",
+  "author": "sarumango",
   "license": "ISC",
   "dependencies": {
     "bcryptjs": "^2.4.3",
