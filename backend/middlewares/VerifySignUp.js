@@ -1,4 +1,4 @@
-import db from '../models/db.js'
+import db from '../Services/userService.js'
 const ROLES = db.ROLES;
 const User = db.user;
 

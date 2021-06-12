@@ -1,6 +1,6 @@
 import mongoose from 'mongoose'
-import user from './user.js'
-import role from './role.js'
+import user from '../models/user.js'
+import role from '../models/role.js'
 
 mongoose.Promise = global.Promise;
 

@@ -1,5 +1,5 @@
 import config from '../config.js'
-import db from '../models/db.js'
+import db from '../Services/userService.js'
 import jwt from 'jsonwebtoken'
 import bcrypt from 'bcryptjs'
 
