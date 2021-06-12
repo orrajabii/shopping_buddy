@@ -3,7 +3,7 @@ import express from 'express'
 import mongoose from 'mongoose'
 // import Users from './Routes/users.js'
 import test from './Routes/Test.js'
-import authRoute from './Routes/auth.routes.js'
+import routes from './Routes/index.js'
 import cors from 'cors'
 // import dbConfig from './dbConfig/db.config.js'
 import db from './Services/userService.js'
@@ -43,7 +43,7 @@ db.mongoose
 
 
 // app.use("/users", Users)
-authRoute(app)
+routes(app)
 test(app)
 app.use("/", (req, res) => {
     console.log("home");
