@@ -1,8 +1,12 @@
 import dotenv from 'dotenv'
 import express from 'express'
 import mongoose from 'mongoose'
-import Users from './Routes/users.js'
+// import Users from './Routes/users.js'
+import test from './Routes/Test.js'
+import authRoute from './Routes/auth.routes.js'
 import cors from 'cors'
+// import dbConfig from './dbConfig/db.config.js'
+import db from './models/db.js'
 // if(process.env.NODE_ENV !== "production"){
 //     dotenv.config()
 // }
@@ -10,7 +14,7 @@ dotenv.config()
 
 const app = express()
 const port = process.env.PORT || 3000
-
+const Role = db.role
 // var corsOptions = {
 //     origin: "http://localhost:8081"
 // };
@@ -23,20 +27,53 @@ app.use(express.json())
 mongoose.Promise = global.Promise;
 
 // Connect MongoDB at default port 27017.
-mongoose.connect(process.env.MONGOURI, {
+db.mongoose
+  .connect(process.env.MONGOURI, {
     useNewUrlParser: true,
-    useCreateIndex: true,
-}, (err) => {
-    if (!err) {
-        console.log('MongoDB Connection Succeeded.')
-    } else {
-        console.log('Error in DB connection: ' + err)
-    }
-});
-app.use("/users", Users)
+    useUnifiedTopology: true
+  })
+  .then(() => {
+    console.log("Successfully connect to MongoDB.");
+    initial();
+  })
+  .catch(err => {
+    console.error("Connection error", err);
+    process.exit();
+  });
+
+
+// app.use("/users", Users)
+authRoute(app)
+test(app)
 app.use("/", (req, res) => {
     console.log("home");
     res.send("hello")
 })
 
-app.listen(port, (req, res) => console.log(`App running at port ${port}`))
+function initial() {
+    Role.estimatedDocumentCount((err, count) => {
+      if (!err && count === 0) {
+        new Role({
+          name: "user"
+        }).save(err => {
+          if (err) {
+            console.log("error", err);
+          }
+  
+          console.log("added 'user' to roles collection");
+        });
+  
+        new Role({
+          name: "admin"
+        }).save(err => {
+          if (err) {
+            console.log("error", err);
+          }
+  
+          console.log("added 'admin' to roles collection");
+        });
+      }
+    });
+  }
+
+app.listen(port, () => console.log(`App running at port ${port}`))
