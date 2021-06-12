@@ -7,6 +7,7 @@ export function userBoard(req, res) {
 }
 
 export function adminBoard(req, res) {
+    console.log("admin -account");
     res.status(200).send("Admin Content.");
 }
 

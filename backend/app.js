@@ -6,7 +6,7 @@ import test from './Routes/Test.js'
 import authRoute from './Routes/auth.routes.js'
 import cors from 'cors'
 // import dbConfig from './dbConfig/db.config.js'
-import db from './models/db.js'
+import db from './Services/userService.js'
 // if(process.env.NODE_ENV !== "production"){
 //     dotenv.config()
 // }

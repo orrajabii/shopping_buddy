@@ -21,13 +21,14 @@ const verifyToken = (req, res, next) => {
 };
 
 const isAdmin = (req, res, next) => {
+  console.log("admin -hit");
   User.findById(req.userId).exec((err, user) => {
     if (err) {
       res.status(500).send({ message: err });
       return;
     }
 
-    Role.find(
+    Role.findOne(
       {
         _id: { $in: user.roles }
       },
@@ -37,6 +38,7 @@ const isAdmin = (req, res, next) => {
           return;
         }
         for (let i = 0; i < roles.length; i++) {
+          console.log(roles[i]);
           if (roles[i].name === "admin") {
             next();
             return;
