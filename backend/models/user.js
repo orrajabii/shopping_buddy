@@ -7,6 +7,7 @@ var userSchema = new mongoose.Schema({
         unique:true,
         index:true,
     },
+    addresses:[{type : mongoose.Schema.Types.ObjectId, ref:'Address'}],
     email:{
         type:String,
         required:true,

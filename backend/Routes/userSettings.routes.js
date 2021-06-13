@@ -13,14 +13,6 @@ const UserSettings = function(app) {
 
   app.delete("/api/user/:id", [authJwt.verifyToken], userController.deleteUser);
   app.put("/api/user/:id", [authJwt.verifyToken], userController.updateUser)
-
-//   app.get("/api/test/user", [authJwt.verifyToken], controller.userBoard);
-
-//   app.get(
-//     "/api/test/admin",
-//     [authJwt.verifyToken, authJwt.isAdmin],
-//     controller.adminBoard
-//   );
 };
 
 export default UserSettings

@@ -28,11 +28,12 @@ export const updateUser = (req, res) => {
     try {
         const updates = req.body
         delete updates["password"] //this function does not update password so this removes any password key from updates
+        console.log(updates);
         User.updateOne({ _id: id }, updates)
             .then(isUpdated => {
                 console.log(isUpdated);
-                if (isUpdated.nModified == 1) res.status(200).json({ message: "User is updated" })
-                else res.status(204)
+                if (isUpdated.nModified == 1) return res.status(200).json({ message: "User is updated" })
+                return res.status(204)
             })
             .catch(err => {
                 res.status(500).json({ message: "User update failed", error: err.message })
