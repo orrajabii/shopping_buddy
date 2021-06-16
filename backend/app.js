@@ -1,20 +1,18 @@
 import dotenv from 'dotenv'
 import express from 'express'
 import mongoose from 'mongoose'
-// import Users from './Routes/users.js'
 import test from './Routes/Test.js'
 import routes from './Routes/index.routes.js'
 import cors from 'cors'
-// import dbConfig from './dbConfig/db.config.js'
 import db from './Services/userService.js'
-// if(process.env.NODE_ENV !== "production"){
-//     dotenv.config()
-// }
+import cors from 'cors'
 dotenv.config()
 
 const app = express()
+
 const port = process.env.PORT || 3000
 const Role = db.role
+
 // var corsOptions = {
 //     origin: "http://localhost:8081"
 // };

@@ -2,7 +2,7 @@ import config from '../config.js'
 import db from '../Services/userService.js'
 import jwt from 'jsonwebtoken'
 import bcrypt from 'bcryptjs'
-import Address from '../Services/AddressService.js'
+import Address from '../Services/Address.service.js'
 const User = db.user;
 const Role = db.role;
 
