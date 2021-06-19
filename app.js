@@ -5,7 +5,6 @@ import test from './Routes/Test.js'
 import routes from './Routes/index.routes.js'
 import cors from 'cors'
 import db from './Services/userService.js'
-import cors from 'cors'
 dotenv.config()
 
 const app = express()
@@ -16,7 +15,7 @@ const Role = db.role
 // var corsOptions = {
 //     origin: "http://localhost:8081"
 // };
-
+//
 // app.use(cors(corsOptions)); //use it in production to specify origin of access
 
 app.use(cors()) //only use for development

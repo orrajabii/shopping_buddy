@@ -22,7 +22,9 @@ var userSchema = new mongoose.Schema({
           type: mongoose.Schema.Types.ObjectId,
           ref: "Role"
         }
-      ]
+    ],
+    customerOrderId : [{type: mongoose.Schema.ObjectId, ref: 'CustomerOrderId'}],
+    customerType: [{type: mongoose.Schema.ObjectId, ref: 'CustomerType'}]
 },{
     timestamps:true
 });
