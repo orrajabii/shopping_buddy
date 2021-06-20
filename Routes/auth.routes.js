@@ -3,7 +3,7 @@ import * as controller from '../Controllers/auth.js'
 
 const { verifySignUp } = middleware
 
-const authRoute = (app) => {
+const AuthRoute = (app) => {
   app.use(function(req, res, next) {
     res.header(
       "Access-Control-Allow-Headers",
@@ -24,4 +24,4 @@ const authRoute = (app) => {
   app.post("/api/auth/signin", controller.signin);
 }; 
 
-export default authRoute
+export default AuthRoute
