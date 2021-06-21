@@ -7,5 +7,4 @@ const paymentSchema = new Schema({
     paymentMethid: { type: Schema.Types.ObjectId, ref: 'PaymentMethod', required: true },
     customerOrderNo: { type: Schema.Types.ObjectId, ref: 'CustomerOrder', required: true },
 })
-
 export default new mongoose.model('Payment', paymentSchema)

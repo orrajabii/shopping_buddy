@@ -22,32 +22,22 @@ const verifyToken = (req, res, next) => {
 
 const isAdmin = (req, res, next) => {
   console.log("admin -hit");
-  User.findById(req.userId).exec((err, user) => {
+  User.findById(req.userId).exec(async (err, user) => {
     if (err) {
       res.status(500).send({ message: err });
       return;
     }
-
-    Role.findOne(
-      {
-        _id: { $in: user.roles }
-      },
-      (err, roles) => {
-        if (err) {
-          res.status(500).send({ message: err });
-          return;
+    for(let roleId of user.roles){
+      const role = await Role.findOne({_id: roleId})
+      if(role){
+        if(role.name == 'admin') {
+          next()
+          return
         }
-        for (let i = 0; i < roles.length; i++) {
-          console.log(roles[i]);
-          if (roles[i].name === "admin") {
-            next();
-            return;
-          }
-        }
-        res.status(403).send({ message: "Require Admin Role!" });
-        return;
       }
-    );
+    }
+    res.status(403).send({ message: "Require Admin Role!" });
+    return;
   });
 };
 
