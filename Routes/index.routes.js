@@ -5,7 +5,7 @@ import UserSettings from './userSettings.routes.js';
 const routes = (app) => {
     AuthRoute(app)
     UserSettings(app)
-    RetailerRoute(App)
+    RetailerRoute(app)
 }
 
 export default routes
