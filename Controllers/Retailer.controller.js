@@ -4,7 +4,7 @@ export const AddRetailer = async (req,res) => {
     try {
         const data = req.body;
         await RetailerService.addOne(data, (err) => {
-            if(err) throw new Error('Error While adding Retailer')
+            if(err) throw new Error('Error While adding Retailer: '+err.message)
             else console.log('Added Retailer');
         })
 

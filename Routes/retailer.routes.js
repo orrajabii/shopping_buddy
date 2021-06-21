@@ -12,9 +12,9 @@ const RetailerRoute = (app) => {
     
     app.get('/api/shops/:id', getRetailer)
     app.get('/api/shops/', getAllRetailer)
-    app.post('/api/shops/add',[authJwt.verifyToken, authJwt.isAdmin], AddRetailer )
-    app.put('/api/shops/:id', [authJwt.verifyToken, authJwt.isAdmin], UpdateRetailer)
-    app.delete('/api/shops/:id', [authJwt.verifyToken, authJwt.isAdmin], deleteRetailerById)
+    app.post('/api/shops/add',[authJwt.verifyToken], AddRetailer )
+    app.put('/api/shops/:id', [authJwt.verifyToken], UpdateRetailer)
+    app.delete('/api/shops/:id', [authJwt.verifyToken], deleteRetailerById)
 }
 
 export default RetailerRoute
