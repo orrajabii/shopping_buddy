@@ -1,32 +1,38 @@
 import mongoose from 'mongoose'
 // Declare the Schema of the Mongo model
 var userSchema = new mongoose.Schema({
-    username:{
-        type:String,
-        required:true,
-        unique:true,
-        index:true,
+    username: {
+        type: String,
+        required: true,
+        unique: true,
+        index: true,
     },
-    address:[{type : mongoose.Schema.Types.ObjectId, ref:'Address'}],
-    email:{
-        type:String,
-        required:true,
-        unique:true,
+    address: {
+        name: { type: String, default: 'home' },
+        street: { type: String, required: true },
+        city: { type: String, required: true },
+        province: { type: String, required: true },
+        zip_code: { type: String, required: true }
     },
-    password:{
-        type:String,
-        required:true,
+    email: {
+        type: String,
+        required: true,
+        unique: true,
+    },
+    password: {
+        type: String,
+        required: true,
     },
     roles: [
         {
-          type: mongoose.Schema.Types.ObjectId,
-          ref: "Role"
+            type: mongoose.Schema.Types.ObjectId,
+            ref: "Role"
         }
     ],
-    customerOrderId : [{type: mongoose.Schema.ObjectId, ref: 'CustomerOrderId'}],
-    customerType: [{type: mongoose.Schema.ObjectId, ref: 'CustomerType'}]
-},{
-    timestamps:true
+    customerOrderId: [{ type: mongoose.Schema.ObjectId, ref: 'CustomerOrderId' }],
+    customerType: [{ type: mongoose.Schema.ObjectId, ref: 'CustomerType' }]
+}, {
+    timestamps: true
 });
 
 //Export the model

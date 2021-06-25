@@ -1,4 +1,3 @@
-import config from '../config.js'
 import userService from '../Services/userService.js'
 import bcrypt from 'bcryptjs'
 
@@ -10,14 +9,14 @@ export const deleteUser = async (req, res) => {
         const user = await User.findOne({ _id: id })
         if (!user) res.status(400).json({ message: "No user found!" })
         else User.deleteOne({ _id: id })
-                .then(result => {
-                    console.log(result)
-                    res.status(200).json({ message: "Account is deleted Successfully!" })
-                })
-                .catch(err => {
-                    console.log(err)
-                    res.status(500).json({ message: "Error occured while delteting your account", error: err.message })
-                })
+            .then(result => {
+                console.log(result)
+                res.status(200).json({ message: "Account is deleted Successfully!" })
+            })
+            .catch(err => {
+                console.log(err)
+                res.status(500).json({ message: "Error occured while delteting your account", error: err.message })
+            })
     } catch (err) {
         res.status(500).json({ message: "User update failed", error: err.message })
     }
@@ -44,13 +43,13 @@ export const updateUser = (req, res) => {
     }
 }
 
-export const changePassword =  async (req, res) => {
+export const changePassword = async (req, res) => {
     const { id } = req.params
     try {
         const user = await User.findOne({ _id: id })
         if (!user) return res.status(400).json({ message: "No user found!" })
         const hashedPassword = await bcrypt.hash(req.body.password, 10)
-        User.updateOne({ _id: id }, { password:hashedPassword })
+        User.updateOne({ _id: id }, { password: hashedPassword })
             .then(isUpdated => {
                 console.log(isUpdated);
                 if (isUpdated.nModified == 1) res.status(200).json({ message: "Password is updated" })
