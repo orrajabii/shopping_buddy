@@ -78,7 +78,7 @@ export function signup(req, res) {
 			});
 		}
 	});
-};
+}
 
 export function signin(req, res) {
 	User.findOne({
@@ -124,4 +124,4 @@ export function signin(req, res) {
 				accessToken: token
 			});
 		});
-};
+}
