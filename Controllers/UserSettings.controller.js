@@ -1,4 +1,4 @@
-import userService from '../Services/userService.js'
+import userService from '../Services/userService'
 import bcrypt from 'bcryptjs'
 
 const User = userService.user
