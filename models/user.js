@@ -7,13 +7,7 @@ var userSchema = new mongoose.Schema({
         unique: true,
         index: true,
     },
-    address: {
-        name: { type: String, default: 'home' },
-        street: { type: String, required: true },
-        city: { type: String, required: true },
-        province: { type: String, required: true },
-        zip_code: { type: String, required: true }
-    },
+    address: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Address' }],
     email: {
         type: String,
         required: true,

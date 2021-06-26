@@ -2,7 +2,7 @@ import config from '../config.js'
 import db from '../Services/userService.js'
 import jwt from 'jsonwebtoken'
 import bcrypt from 'bcryptjs'
-// import Address from '../Services/Address.service.js'
+import Address from '../Services/Address.service.js'
 const User = db.user;
 const Role = db.role;
 
@@ -19,21 +19,21 @@ export function signup(req, res) {
 			return;
 		}
 
-		// if (req.body.address) {
-		// 	const address = await Address.add(req.body.address, {})
-		// 	console.log(address._id);
-		// 	if (address._id) {
-		// 		const userAddresses = user.addresses ? user.addresses : []
-		// 		user.addresses = [...userAddresses, address._id]
-		// 		user.save(err => {
-		// 			if(err) {
-		// 				res.status(500).json({message: "Address adding problem"})
-		// 				console.log(err.message);
-		// 				return;
-		// 			}
-		// 		})
-		// 	}
-		// }
+		if (req.body.address) {
+			const address = await Address.add(req.body.address, {})
+			console.log(address._id);
+			if (address._id) {
+				const userAddresses = user.addresses ? user.addresses : []
+				user.addresses = [...userAddresses, address._id]
+				user.save(err => {
+					if (err) {
+						res.status(500).json({ message: "Address adding problem" })
+						console.log(err.message);
+						return;
+					}
+				})
+			}
+		}
 
 		if (req.body.roles) {
 			Role.find(
