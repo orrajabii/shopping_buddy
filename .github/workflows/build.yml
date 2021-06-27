@@ -22,3 +22,8 @@ jobs:
       - run: npm ci
       - run: npm run build --if-present
       - run: npm run start
+      - run: echo "Build passed!"
+      - run: git branch
+      - run: git checkout master
+      - run: git pull origin dev
+      - run: echo "Build passed merged dev to master branch"
