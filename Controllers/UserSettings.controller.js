@@ -3,6 +3,25 @@ import bcrypt from 'bcryptjs'
 
 const User = userService.user
 
+export const getAllUsers = async (req, res) => {
+    try {
+        const users = await User.find({})
+        return res.status(200).json({ users: users })
+    } catch (error) {
+        return res.status(500).json({ message: 'Error', err: error.message })
+    }
+}
+
+export const getOneUser = async (req, res) => {
+    try {
+        const id = req.params.id
+        const user = await User.findOne({ _id: id })
+        return res.status(200).json({ user: user })
+    } catch (error) {
+        return res.status(500).json({ message: 'Error', err: error.message })
+    }
+}
+
 export const deleteUser = async (req, res) => {
     const { id } = req.params
     try {
