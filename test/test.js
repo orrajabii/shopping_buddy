@@ -1,22 +1,37 @@
 /* eslint-disable no-undef */
-import assert from 'assert'
-import axios from 'axios'
+/* eslint-disable no-unused-vars */
+import chai from 'chai';
+import chaiHttp from 'chai-http';
+import server from '../app.js';
+const should = chai.should();
+let token;
 
-// describe('Array', function () {
-//     describe('#indexOf()', function () {
-//         it('should return -1 when the value is not present', function () {
-//             assert.equal([1, 2, 3].indexOf(4), -1);
-//         });
-//     });
-// });
-beforeEach(async function () {
-    console.log(await axios.get('https://localhost:3000/'));
-})
+chai.use(chaiHttp);
+//Our parent block
+describe('Test', () => {
+    describe('/Post Login', () => {
+        it('should login', (done) => {
+            chai.request(server)
+                .post('/api/signin')
+                .send({ username: 'test12', password: 'password12' })
+                .end((err, res) => {
+                    console.log(res.body.token);
+                    res.should.have.status(200);
+                    res.body.should.be.a('object');
+                    done();
+                });
+        })
+    })
 
-describe('Root Test', function () {
-    describe('#root()', async function () {
-        it('Should Return Running', function () {
-            assert.equal([1, 2, 3].indexOf(4), -1);
+    describe('/GET api/test/all', () => {
+        it('it should GET `Public Content.` ', (done) => {
+            chai.request(server)
+                .get('/api/test/all')
+                .end((err, res) => {
+                    res.should.have.status(200);
+                    done();
+                });
         });
     });
-})
+
+});
