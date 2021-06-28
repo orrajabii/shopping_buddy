@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 import dotenv from 'dotenv'
 import express from 'express'
 import mongoose from 'mongoose'
@@ -43,26 +44,28 @@ db.mongoose
 routes(app)
 test(app)
 app.use("/", (req, res) => {
-    console.log("home");
-    res.send("hello")
+  console.log("home");
+  res.send("hello")
 })
 
 function initial() {
-    Role.estimatedDocumentCount((err, count) => {
-      if (!err && count === 0) {
-        const types = ["user", "admin", "retailer", "driver"]
-        for(let type of types){
-          new Role({
-            name: type
-          }).save(err => {
-            if (err) {
-              console.log("error", err);
-            }
-            console.log(`added '${type}' to roles collection`);
-          });
-        }
+  Role.estimatedDocumentCount((err, count) => {
+    if (!err && count === 0) {
+      const types = ["user", "admin", "retailer", "driver"]
+      for (let type of types) {
+        new Role({
+          name: type
+        }).save(err => {
+          if (err) {
+            console.log("error", err);
+          }
+          console.log(`added '${type}' to roles collection`);
+        });
       }
-    });
-  }
+    }
+  });
+}
 
 app.listen(port, () => console.log(`App running at port ${port}`))
+
+export default app
