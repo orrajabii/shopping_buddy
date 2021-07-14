@@ -19,6 +19,7 @@ import { ProductComponent } from './products/products-list/product/product.compo
 import { CategoryService } from './app-services/category.service';
 import { ProductsService } from './app-services/products.service';
 import { CartComponent } from './cart/cart.component';
+import { PaymentComponent } from './payment/payment.component';
 
 
 @NgModule({
@@ -35,7 +36,8 @@ import { CartComponent } from './cart/cart.component';
     CheckoutComponent,
     ProductsListComponent,
     ProductComponent,
-    CartComponent
+    CartComponent,
+    PaymentComponent
   ],
   imports: [
     BrowserModule,
@@ -49,7 +51,8 @@ import { CartComponent } from './cart/cart.component';
         {path: 'products/product/:id', component:ProductpageComponent},
         {path: 'signout', component: SignoutComponent},
         {path: 'checkout', component: CheckoutComponent},
-        {path:'cart', component: CartComponent}
+        {path:'cart', component: CartComponent},
+        {path:'payment', component: PaymentComponent}
     ])
   ],
   providers: [CategoryService, ProductsService],
