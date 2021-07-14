@@ -208,10 +208,19 @@ span.psw {
 
     <label for="psw-repeat"><b>Repeat Password</b></label>
     <input type="password" placeholder="Repeat Password" name="psw-repeat" id="psw-repeat" >
+
+    <label for="psw-repeat"><b>Address</b></label>
+    <input type="password" placeholder="Enter Address" name="psw-repeat" id="psw-repeat" >
+
+    <label for="psw-repeat"><b>State</b></label>
+    <input type="password" placeholder="Enter State" name="psw-repeat" id="psw-repeat" >
+
+    <label for="psw-repeat"><b>Zip code</b></label>
+    <input type="password" placeholder="Enter Zipcode" name="psw-repeat" id="psw-repeat" >
     <hr>
     <p>By creating an account you agree to our <a href="#">Terms & Privacy</a>.</p>
 
-    <button type="submit" class="registerbtn">Register</button>
+    <button type="submit" class="registerbtn" [routerLink]="['/user-dashboard']">Register</button>
   </div>
   
   <div class="container signin">
@@ -234,7 +243,7 @@ span.psw {
       <label for="psw"><b>Password</b></label>
       <input type="password" placeholder="Enter Password" name="psw" required>
         
-      <button type="submit">Login</button>
+      <button type="submit" [routerLink]="['/user-dashboard']">Login</button>
       <label>
         <input type="checkbox" checked="checked" name="remember"> Remember me
       </label>

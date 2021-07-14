@@ -23,6 +23,7 @@ import { PaymentComponent } from './payment/payment.component';
 import { AddproductComponent } from './addproduct/addproduct.component';
 import { AboutusComponent } from './aboutus/aboutus.component';
 import { TermsComponent } from './terms/terms.component';
+import { UserDashboardComponent } from './user-dashboard/user-dashboard.component';
 
 
 @NgModule({
@@ -43,7 +44,8 @@ import { TermsComponent } from './terms/terms.component';
     PaymentComponent,
     AddproductComponent,
     AboutusComponent,
-    TermsComponent
+    TermsComponent,
+    UserDashboardComponent
   ],
   imports: [
     BrowserModule,
@@ -61,7 +63,8 @@ import { TermsComponent } from './terms/terms.component';
         {path:'payment', component: PaymentComponent},
         {path:'aboutus', component: AboutusComponent},
         {path:'terms', component: TermsComponent},
-        {path:'addproduct', component: AddproductComponent}
+        {path:'addproduct', component: AddproductComponent},
+        {path:'user-dashboard', component: UserDashboardComponent}
     ])
   ],
   providers: [CategoryService, ProductsService],
