@@ -7,11 +7,12 @@ const retailerSchema = new Schema({
     email: { type: String, required: true },
     address: {
         street: { type: String, required: true },
-        city:  { type: String, required: true },
-        province:  { type: String, required: true },
-        zip_code:  { type: String, required: true }
+        city: { type: String, required: true },
+        province: { type: String, required: true },
+        zip_code: { type: String, required: true }
     },
     password: { type: String },
+    products: [{ type: Schema.Types.ObjectId, ref: 'Products' }]
 })
 
 export default new mongoose.model('Retailer', retailerSchema)
