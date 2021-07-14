@@ -243,13 +243,13 @@ label{
 	  <label for="name"><b>Shop Location</b></label>
       <input type="text" placeholder="Enter shop location" name="uname" required>
         
-      <button type="submit" style="margin-top: 18px;">Create Shop</button>
+      <button type="submit" style="margin-top: 18px;" [routerLink]="['/addproduct']">Create Shop</button>
       
     </div>
 
     <div class="container2" style="background-color:#f1f1f1">
       <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
-      <span class="psw"><a href="#">Edit Existing Shop</a></span>
+      <span class="psw"><a href="/addproduct">Edit Existing Shop</a></span>
     </div>
   </form>
 </div>

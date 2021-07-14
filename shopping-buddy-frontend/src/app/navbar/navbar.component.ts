@@ -19,8 +19,8 @@ export class NavbarComponent implements OnInit {
       {'title': 'Home', 'href': 'home', 'active': false},
       {'title': 'Products', 'href': 'products', 'active': false},
       {'title': 'My Shop', 'href': 'signout', 'active': false},
-      {'title': 'Services', 'href': '#', 'active': false},
-      {'title': 'Flyers & Deals', 'href': '#', 'active': false},
+      {'title': 'About Us', 'href': 'aboutus', 'active': false},
+      {'title': 'Terms & Conditions', 'href': 'terms', 'active': false},
       {'title': 'My Account', 'href': 'checkout', 'active': false}
     ];
   }

@@ -20,6 +20,9 @@ import { CategoryService } from './app-services/category.service';
 import { ProductsService } from './app-services/products.service';
 import { CartComponent } from './cart/cart.component';
 import { PaymentComponent } from './payment/payment.component';
+import { AddproductComponent } from './addproduct/addproduct.component';
+import { AboutusComponent } from './aboutus/aboutus.component';
+import { TermsComponent } from './terms/terms.component';
 
 
 @NgModule({
@@ -37,7 +40,10 @@ import { PaymentComponent } from './payment/payment.component';
     ProductsListComponent,
     ProductComponent,
     CartComponent,
-    PaymentComponent
+    PaymentComponent,
+    AddproductComponent,
+    AboutusComponent,
+    TermsComponent
   ],
   imports: [
     BrowserModule,
@@ -52,7 +58,10 @@ import { PaymentComponent } from './payment/payment.component';
         {path: 'signout', component: SignoutComponent},
         {path: 'checkout', component: CheckoutComponent},
         {path:'cart', component: CartComponent},
-        {path:'payment', component: PaymentComponent}
+        {path:'payment', component: PaymentComponent},
+        {path:'aboutus', component: AboutusComponent},
+        {path:'terms', component: TermsComponent},
+        {path:'addproduct', component: AddproductComponent}
     ])
   ],
   providers: [CategoryService, ProductsService],
