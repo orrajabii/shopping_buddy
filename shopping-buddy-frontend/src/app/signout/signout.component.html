@@ -1,28 +1,35 @@
-<br><br>
-<br>
-<section id="signout">
+<body onload="doShowAll()">
+	<h2>Shopping Cart with HTML5 Storage Project</h2>
+	<p>Insert items and quantity for your shopping cart. </p>
+	<form name=ShoppingList id="shoppingList" onload="doShowAll()">
 
+		<div id="main">
+			<table>
+				<tr>
 
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-6 ">
-            <div class="card">
-                <div class="card-header">
-                    <h4>Are you sure you want to sign out?</h4>
-                </div>
-                <div class="card-block">
-                    <p class="lead"> you are about to leave the website and logout.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias ipsum laudantium placeat similique. Animi asperiores</p>
-                </div>
-                <div class="card-footer">
-                    <div class="btn-group center-block float-right">
-                        <button class="btn btn-default">yes</button>
-                        <button class="btn btn-danger">no</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-<br>
-<br>
-</section>
+					<td><b>Item:</b><input type=text name=name id="pname"></td>
+					<td><b>Quantity:</b><input type=text name=data id="data"></td>
+
+				</tr>
+
+				<tr>
+					<td>
+					    <input type=button value="Save"   onclick="SaveItem()"> 
+					    <input type=button value="Update" onclick="ModifyItem()"> 
+					    <input type=button value="Delete" onclick="RemoveItem()">
+					</td>
+				</tr>
+			</table>
+		</div>
+
+		<div id="items_table" onload="doShowAll()">
+			<h3>Shopping List</h3>
+			<table id=list></table>
+			<p>
+				<label><input type=button value="Clear" onclick="ClearAll()">
+					<i>* Delete all items</i></label>
+			</p>
+		</div>
+	</form>
+
+</body>

@@ -13,7 +13,7 @@ import {NavbarComponent} from './navbar/navbar.component';
 //TODO: 4: (DONE) fetch a real photos of products
 //TODO: 5: fix bugs in styles in navbar and so on
 export class AppComponent implements OnInit, AfterViewInit {
-  title = 'let\'s start templating the e-commerce app';
+  title = 'Shopping Buddy';
   hideAnchor:boolean = true;
 
   @ViewChild(NavbarComponent)
@@ -44,4 +44,35 @@ export class AppComponent implements OnInit, AfterViewInit {
         },5)
 
     }
+
+    CheckBrowser() {
+      if ('localStorage' in window && window['localStorage'] !== null) {
+          // we can use localStorage object to store data
+          return true;
+      } else {
+              return false;
+      }
+    }
+    doShowAll() {
+      if (this.CheckBrowser()) {
+          var key = "";
+          var list = "<tr><th>Item</th><th>Value</th></tr>\n";
+          var i = 0;
+          //for more advance feature, you can set cap on max items in the cart
+          for (i = 0; i <= localStorage.length-1; i++) {
+              key = localStorage.key(i);
+              list += "<tr><td>" + key + "</td>\n<td>"
+                      + localStorage.getItem(key) + "</td></tr>\n";
+          }
+          //if no item exists in the cart
+          if (list == "<tr><th>Item</th><th>Value</th></tr>\n") {
+              list += "<tr><td><i>empty</i></td>\n<td><i>empty</i></td></tr>\n";
+          }
+          //bind the data to html table
+          //you can use jQuery too....
+          document.getElementById('list').innerHTML = list;
+      } else {
+          alert('Cannot save shopping list as your browser does not support HTML 5');
+      }
+  }
 }
