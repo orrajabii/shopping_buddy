@@ -27,10 +27,10 @@ const isAdmin = (req, res, next) => {
       res.status(500).send({ message: err });
       return;
     }
-    for(let roleId of user.roles){
-      const role = await Role.findOne({_id: roleId})
-      if(role){
-        if(role.name == 'admin') {
+    for (let roleId of user.roles) {
+      const role = await Role.findOne({ _id: roleId })
+      if (role) {
+        if (role.name == 'admin') {
           next()
           return
         }
@@ -41,8 +41,21 @@ const isAdmin = (req, res, next) => {
   });
 };
 
+const isOwner = (req, res, next) => {
+  User.findOne({ _id: req.userId, shops: req.parma.id }).exec(async (err) => {
+    if (err) {
+      res.status(500).send({ message: err });
+      return;
+    }
+
+    next()
+    return;
+  })
+}
+
 const authJwt = {
   verifyToken,
-  isAdmin
+  isAdmin,
+  isOwner
 };
 export default authJwt
