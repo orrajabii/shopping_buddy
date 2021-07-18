@@ -11,10 +11,11 @@ const productRoutes = (app) => {
     });
 
     app.get('/api/products', ProductController.getAll);
+    app.get('/api/shops/:ShopId/products', ProductController.getShopProducts)
     app.get('/api/products/:id', ProductController.getOne);
-    app.post('/api/products', [authJwt.verifyToken, authJwt.isAdmin], ProductController.add);
-    app.put('/api/products/:id', [authJwt.verifyToken, authJwt.isAdmin], ProductController.update);
-    app.delete('/api/products/:id', [authJwt.verifyToken, authJwt.isAdmin], ProductController.remove);
+    app.post('/api/shops/:shopId/add/product', [authJwt.verifyToken, authJwt.isShopOwner], ProductController.add);
+    app.put('/api/shops/:shopId/update/products/:id', [authJwt.verifyToken, authJwt.isShopOwner], ProductController.update);
+    app.delete('/api/shops/:shopId/delete/products/:id', [authJwt.verifyToken, authJwt.isShopOwner], ProductController.remove);
 };
 
 export default productRoutes;

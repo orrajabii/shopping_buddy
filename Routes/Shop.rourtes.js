@@ -10,11 +10,11 @@ const ShopRoutes = (app) => {
         next();
     });
 
-    app.get('/api/shops/:id', GetOneShop)
+    app.get('/api/shops/:ShopId', GetOneShop)
     app.get('/api/shops/', GetAllShops)
     app.post('/api/shops/add', [authJwt.verifyToken], AddShop)
-    app.put('/api/shops/:id', [authJwt.verifyToken, authJwt.isOwner], updateOne)
-    app.delete('/api/shops/:id', [authJwt.verifyToken, authJwt.isOwner], deleteShop)
+    app.put('/api/shops/:ShopId', [authJwt.verifyToken, authJwt.isOwner], updateOne)
+    app.delete('/api/shops/:ShopId', [authJwt.verifyToken, authJwt.isOwner], deleteShop)
 }
 
 export default ShopRoutes
