@@ -13,8 +13,8 @@ const ShopRoutes = (app) => {
     app.get('/api/shops/:ShopId', GetOneShop)
     app.get('/api/shops/', GetAllShops)
     app.post('/api/shops/add', [authJwt.verifyToken], AddShop)
-    app.put('/api/shops/:ShopId', [authJwt.verifyToken, authJwt.isOwner], updateOne)
-    app.delete('/api/shops/:ShopId', [authJwt.verifyToken, authJwt.isOwner], deleteShop)
+    app.put('/api/shops/:ShopId', [authJwt.verifyToken, authJwt.isShopOwner], updateOne)
+    app.delete('/api/shops/:ShopId', [authJwt.verifyToken, authJwt.isShopOwner], deleteShop)
 }
 
 export default ShopRoutes

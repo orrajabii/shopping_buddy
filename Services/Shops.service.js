@@ -1,4 +1,4 @@
-import Shop from '../models/Shop.js';
+import Shop from '../models/Shops.js';
 
 const addOne = async (shop) => await Shop.save(shop);
 const getOne = async (id, options) => await Shop.findOne({ _id: id }).populate(options);
