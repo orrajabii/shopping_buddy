@@ -9,7 +9,7 @@ const ShopRoutes = (app) => {
         );
         next();
     });
-
+    // test it
     app.get('/api/shops/:ShopId', GetOneShop)
     app.get('/api/shops/', GetAllShops)
     app.post('/api/shops/add', [authJwt.verifyToken], AddShop)
