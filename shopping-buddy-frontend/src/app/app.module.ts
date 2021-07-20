@@ -31,6 +31,9 @@ import { AdminSettingsComponent } from './admin-settings/admin-settings.componen
 import { UserOrderHistoryComponent } from './user-order-history/user-order-history.component';
 import { PaymentReceiptComponent } from './payment-receipt/payment-receipt.component';
 import { OrderHistoryComponent } from './order-history/order-history.component';
+import { TeamMemberComponent } from './team-member/team-member.component';
+import { AdminMessagesComponent } from './admin-messages/admin-messages.component';
+import { PaymentHistoryComponent } from './payment-history/payment-history.component';
 
 
 @NgModule({
@@ -59,7 +62,10 @@ import { OrderHistoryComponent } from './order-history/order-history.component';
     AdminSettingsComponent,
     UserOrderHistoryComponent,
     PaymentReceiptComponent,
-    OrderHistoryComponent
+    OrderHistoryComponent,
+    TeamMemberComponent,
+    AdminMessagesComponent,
+    PaymentHistoryComponent
   ],
   imports: [
     BrowserModule,
@@ -85,7 +91,10 @@ import { OrderHistoryComponent } from './order-history/order-history.component';
         {path:'admin-settings', component: AdminSettingsComponent},
         {path:'user-order-history', component: UserOrderHistoryComponent},
         {path:'payment-receipt', component: PaymentReceiptComponent},
-        {path:'order-history', component: OrderHistoryComponent}
+        {path:'order-history', component: OrderHistoryComponent},
+        {path:'team-member', component: TeamMemberComponent},
+        {path:'admin-messages', component: AdminMessagesComponent},
+        {path:'payment-history', component: PaymentHistoryComponent}
     ])
   ],
   providers: [CategoryService, ProductsService],
