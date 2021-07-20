@@ -24,6 +24,10 @@ import { AddproductComponent } from './addproduct/addproduct.component';
 import { AboutusComponent } from './aboutus/aboutus.component';
 import { TermsComponent } from './terms/terms.component';
 import { UserDashboardComponent } from './user-dashboard/user-dashboard.component';
+import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.component';
+import { UserSettingsComponent } from './user-settings/user-settings.component';
+import { UserListComponent } from './user-list/user-list.component';
+import { AdminSettingsComponent } from './admin-settings/admin-settings.component';
 
 
 @NgModule({
@@ -45,7 +49,11 @@ import { UserDashboardComponent } from './user-dashboard/user-dashboard.componen
     AddproductComponent,
     AboutusComponent,
     TermsComponent,
-    UserDashboardComponent
+    UserDashboardComponent,
+    AdminDashboardComponent,
+    UserSettingsComponent,
+    UserListComponent,
+    AdminSettingsComponent
   ],
   imports: [
     BrowserModule,
@@ -64,7 +72,11 @@ import { UserDashboardComponent } from './user-dashboard/user-dashboard.componen
         {path:'aboutus', component: AboutusComponent},
         {path:'terms', component: TermsComponent},
         {path:'addproduct', component: AddproductComponent},
-        {path:'user-dashboard', component: UserDashboardComponent}
+        {path:'user-dashboard', component: UserDashboardComponent},
+        {path:'admin-dashboard', component: AdminDashboardComponent},
+        {path:'user-settings', component: UserSettingsComponent},
+        {path:'user-list', component: UserListComponent},
+        {path:'admin-settings', component: AdminSettingsComponent}
     ])
   ],
   providers: [CategoryService, ProductsService],
