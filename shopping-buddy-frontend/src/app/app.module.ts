@@ -28,6 +28,9 @@ import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.compo
 import { UserSettingsComponent } from './user-settings/user-settings.component';
 import { UserListComponent } from './user-list/user-list.component';
 import { AdminSettingsComponent } from './admin-settings/admin-settings.component';
+import { UserOrderHistoryComponent } from './user-order-history/user-order-history.component';
+import { PaymentReceiptComponent } from './payment-receipt/payment-receipt.component';
+import { OrderHistoryComponent } from './order-history/order-history.component';
 
 
 @NgModule({
@@ -53,7 +56,10 @@ import { AdminSettingsComponent } from './admin-settings/admin-settings.componen
     AdminDashboardComponent,
     UserSettingsComponent,
     UserListComponent,
-    AdminSettingsComponent
+    AdminSettingsComponent,
+    UserOrderHistoryComponent,
+    PaymentReceiptComponent,
+    OrderHistoryComponent
   ],
   imports: [
     BrowserModule,
@@ -76,7 +82,10 @@ import { AdminSettingsComponent } from './admin-settings/admin-settings.componen
         {path:'admin-dashboard', component: AdminDashboardComponent},
         {path:'user-settings', component: UserSettingsComponent},
         {path:'user-list', component: UserListComponent},
-        {path:'admin-settings', component: AdminSettingsComponent}
+        {path:'admin-settings', component: AdminSettingsComponent},
+        {path:'user-order-history', component: UserOrderHistoryComponent},
+        {path:'payment-receipt', component: PaymentReceiptComponent},
+        {path:'order-history', component: OrderHistoryComponent}
     ])
   ],
   providers: [CategoryService, ProductsService],
