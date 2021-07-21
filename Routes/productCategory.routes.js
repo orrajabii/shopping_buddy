@@ -10,11 +10,11 @@ const productCatRoutes = (app) => {
         next();
     });
 
-    // app.get('/api/products', );
-    // app.get('/api/products/:id',);
-    app.post('/api/shop/category', [authJwt.verifyToken, authJwt.isAdmin], ProductCategory.add);
-    // app.put('/api/products/:id', [authJwt.verifyToken, authJwt.isAdmin], ProductController.update);
-    // app.delete('/api/products/:id', [authJwt.verifyToken, authJwt.isAdmin], ProductController.remove);
+    app.get('/api/categories', ProductCategory.getAllCat);
+    app.get('/api/category/:id', ProductCategory.getOne);
+    app.post('/api/shop/category', [authJwt.verifyToken], ProductCategory.add);
+    app.put('/api/category/:id', [authJwt.verifyToken], ProductCategory.update);
+    app.delete('/api/category/:id', [authJwt.verifyToken], ProductCategory.deleteCat);
 };
 
 export default productCatRoutes;

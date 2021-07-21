@@ -27,22 +27,33 @@ const isAdmin = (req, res, next) => {
       res.status(500).send({ message: err });
       return;
     }
-    for(let roleId of user.roles){
-      const role = await Role.findOne({_id: roleId})
-      if(role){
-        if(role.name == 'admin') {
+    for (let roleId of user.roles) {
+      const role = await Role.findOne({ _id: roleId })
+      if (role) {
+        if (role.name == 'admin') {
           next()
           return
         }
       }
     }
-    res.status(403).send({ message: "Require Admin Role!" });
+    res.status(403).send({ message: "You are not autherized!" });
     return;
   });
 };
 
+const isShopOwner = async (req, res, next) => {
+  const user = await User.findOne({ _id: req.userId, shops: req.parma.ShopId })
+  if (!user) {
+    isAdmin(req, res, next);
+    return;
+  }
+  next();
+  return;
+}
+
 const authJwt = {
   verifyToken,
-  isAdmin
+  isAdmin,
+  isShopOwner
 };
 export default authJwt
