@@ -1,0 +1,263 @@
+
+  <div class="sidebar">
+    <ul class="nav-links">
+      <li>
+          <a [routerLink]="['/admin-dashboard']" >
+          <i class='bx bx-grid-alt' ></i>
+          <span class="links_name">Dashboard</span>
+        </a>
+      </li>
+      <li>
+        <a [routerLink]="['/user-list']" class="active">
+          <i class='bx bx-box' ></i>
+          <span class="links_name">User List</span>
+        </a>
+      </li>
+      <li>
+        <a [routerLink]="['/order-history']" >
+          <i class='bx bx-list-ul' ></i>
+          <span class="links_name">Order list</span>
+        </a>
+      </li>
+      <li>
+        <a href="#">
+          <i class='bx bx-pie-chart-alt-2' ></i>
+          <span class="links_name">Analytics</span>
+        </a>
+      </li>
+      <li>
+        <a [routerLink]="['/payment-history']">
+          <i class='bx bx-book-alt' ></i>
+          <span class="links_name">Payment list</span>
+        </a>
+      </li>
+      <li>
+        <a [routerLink]="['/team-member']" >
+          <i class='bx bx-user' ></i>
+          <span class="links_name">Team</span>
+        </a>
+      </li>
+      <li>
+        <a [routerLink]="['/admin-messages']">
+          <i class='bx bx-message' ></i>
+          <span class="links_name">Messages</span>
+        </a>
+      </li>
+      <li>
+          <a [routerLink]="['/admin-settings']">
+          <i class='bx bx-cog' ></i>
+          <span class="links_name">Settings</span>
+        </a>
+      </li>
+      <li>
+        <a [routerLink]="['/checkout']">
+          <i class='bx bx-log-out'></i>
+          <span class="links_name">Log out</span>
+        </a>
+      </li>
+    </ul>
+</div>
+<section class="home-section">
+ 
+  <div class="home-content">
+    
+        <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
+<h3 style="padding-left: 10px;">MANAGE USERS</h3>
+<br>
+<div class="container">
+<div class="row">
+    <div class="col-md-12">
+        <div class="card">
+            <div class="table-responsive">
+                <table class="table no-wrap user-table mb-0">
+                  <thead>
+                    <tr>
+                      <th scope="col" class="border-0 text-uppercase font-medium pl-4">#</th>
+                      <th scope="col" class="border-0 text-uppercase font-medium">Name</th>
+                      <th scope="col" class="border-0 text-uppercase font-medium">Username</th>
+                      <th scope="col" class="border-0 text-uppercase font-medium">Email</th>
+                      <th scope="col" class="border-0 text-uppercase font-medium">Added</th>
+                      <th scope="col" class="border-0 text-uppercase font-medium">Status</th>
+                      <th scope="col" class="border-0 text-uppercase font-medium">Manage</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td class="pl-4">1</td>
+                      <td>
+                          <h5 class="font-medium mb-0">Daniel Kristeen</h5>
+                          <span class="text-muted">Toronto, CA</span>
+                      </td>
+                      <td>
+                          <span class="text-muted">dKristeen</span><br>
+                          <!-- <span class="text-muted">Past : teacher</span> -->
+                      </td>
+                      <td>
+                          <span class="text-muted">daniel@website.com</span><br>
+                          <span class="text-muted">999 - 444 - 555</span>
+                      </td>
+                      <td>
+                          <span class="text-muted">15 Mar 1988</span><br>
+                          <span class="text-muted">10: 55 AM</span>
+                      </td>
+                      <td><span class="badge badge-success m-0" style="padding: 5px;">Active</span></td>
+                      <td>
+                        <button type="button" class="btn btn-outline-info btn-circle btn-lg btn-circle" [routerLink]="['/user-order-history']"><i class="fa fa-key"></i> </button>
+                        <button type="button" class="btn btn-outline-info btn-circle btn-lg btn-circle ml-2"><i class="fa fa-trash"></i> </button>
+                        <button type="button" class="btn btn-outline-info btn-circle btn-lg btn-circle ml-2"><i class="fa fa-edit"></i> </button>
+                        <button type="button" class="btn btn-outline-info btn-circle btn-lg btn-circle ml-2"><i class="fa fa-upload"></i> </button>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td class="pl-4">2</td>
+                      <td>
+                          <h5 class="font-medium mb-0">Emma Smith</h5>
+                          <span class="text-muted">Etobicoke, CA</span>
+                      </td>
+                      <td>
+                          <span class="text-muted">eSmith</span><br>
+                          <!-- <span class="text-muted">Past : teacher</span> -->
+                      </td>
+                      <td>
+                          <span class="text-muted">daniel@website.com</span><br>
+                          <span class="text-muted">999 - 444 - 555</span>
+                      </td>
+                      <td>
+                          <span class="text-muted">15 Mar 1855</span><br>
+                          <span class="text-muted">10: 00 AM</span>
+                      </td>
+                      <td><span class="badge badge-success m-0" style="padding: 5px;">Active</span></td>
+                      <td>
+                        <button type="button" class="btn btn-outline-info btn-circle btn-lg btn-circle"><i class="fa fa-key"></i> </button>
+                        <button type="button" class="btn btn-outline-info btn-circle btn-lg btn-circle ml-2"><i class="fa fa-trash"></i> </button>
+                        <button type="button" class="btn btn-outline-info btn-circle btn-lg btn-circle ml-2"><i class="fa fa-edit"></i> </button>
+                        <button type="button" class="btn btn-outline-info btn-circle btn-lg btn-circle ml-2"><i class="fa fa-upload"></i> </button>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td class="pl-4">3</td>
+                      <td>
+                          <h5 class="font-medium mb-0">Olivia Johnson</h5>
+                          <span class="text-muted">Markham, CA</span>
+                      </td>
+                      <td>
+                          <span class="text-muted">oJohnson</span><br>
+                          <!-- <span class="text-muted">Past : teacher</span> -->
+                      </td>
+                      <td>
+                          <span class="text-muted">daniel@website.com</span><br>
+                          <span class="text-muted">999 - 444 - 555</span>
+                      </td>
+                      <td>
+                          <span class="text-muted">17 Aug 1988</span><br>
+                          <span class="text-muted">12: 55 AM</span>
+                      </td>
+                      <td><span class="badge badge-success m-0" style="padding: 5px;">Active</span></td>
+                      <td>
+                        <button type="button" class="btn btn-outline-info btn-circle btn-lg btn-circle"><i class="fa fa-key"></i> </button>
+                        <button type="button" class="btn btn-outline-info btn-circle btn-lg btn-circle ml-2"><i class="fa fa-trash"></i> </button>
+                        <button type="button" class="btn btn-outline-info btn-circle btn-lg btn-circle ml-2"><i class="fa fa-edit"></i> </button>
+                        <button type="button" class="btn btn-outline-info btn-circle btn-lg btn-circle ml-2"><i class="fa fa-upload"></i> </button>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td class="pl-4">4</td>
+                      <td>
+                          <h5 class="font-medium mb-0">Isabella Williams</h5>
+                          <span class="text-muted">Mississauga, CA</span>
+                      </td>
+                      <td>
+                          <span class="text-muted">iWilliams</span><br>
+                          <!-- <span class="text-muted">Past : teacher</span> -->
+                      </td>
+                      <td>
+                          <span class="text-muted">daniel@website.com</span><br>
+                          <span class="text-muted">999 - 444 - 555</span>
+                      </td>
+                      <td>
+                          <span class="text-muted">26 Mar 1999</span><br>
+                          <span class="text-muted">10: 55 AM</span>
+                      </td>
+                      <td><span class="badge badge-warning m-0" style="padding: 5px;">Inactive</span></td>
+                      <td>
+                        <button type="button" class="btn btn-outline-info btn-circle btn-lg btn-circle"><i class="fa fa-key"></i> </button>
+                        <button type="button" class="btn btn-outline-info btn-circle btn-lg btn-circle ml-2"><i class="fa fa-trash"></i> </button>
+                        <button type="button" class="btn btn-outline-info btn-circle btn-lg btn-circle ml-2"><i class="fa fa-edit"></i> </button>
+                        <button type="button" class="btn btn-outline-info btn-circle btn-lg btn-circle ml-2"><i class="fa fa-upload"></i> </button>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td class="pl-4">5</td>
+                      <td>
+                          <h5 class="font-medium mb-0">Sophia Jones</h5>
+                          <span class="text-muted">North York, CA</span>
+                      </td>
+                      <td>
+                          <span class="text-muted">sJones</span><br>
+                          <!-- <span class="text-muted">Past : teacher</span> -->
+                      </td>
+                      <td>
+                          <span class="text-muted">daniel@website.com</span><br>
+                          <span class="text-muted">999 - 444 - 555</span>
+                      </td>
+                      <td>
+                          <span class="text-muted">16 Aug 2001</span><br>
+                          <span class="text-muted">10: 55 AM</span>
+                      </td>
+                      <td><span class="badge badge-danger m-0" style="padding: 5px;">Deleted</span></td>
+                      <td>
+                        <button type="button" class="btn btn-outline-info btn-circle btn-lg btn-circle"><i class="fa fa-key"></i> </button>
+                        <button type="button" class="btn btn-outline-info btn-circle btn-lg btn-circle ml-2"><i class="fa fa-trash"></i> </button>
+                        <button type="button" class="btn btn-outline-info btn-circle btn-lg btn-circle ml-2"><i class="fa fa-edit"></i> </button>
+                        <button type="button" class="btn btn-outline-info btn-circle btn-lg btn-circle ml-2"><i class="fa fa-upload"></i> </button>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td class="pl-4">6</td>
+                      <td>
+                          <h5 class="font-medium mb-0">Charlotte Brown</h5>
+                          <span class="text-muted">Brampton, CA</span>
+                      </td>
+                      <td>
+                          <span class="text-muted">cBrown</span><br>
+                          <!-- <span class="text-muted">Past : teacher</span> -->
+                      </td>
+                      <td>
+                          <span class="text-muted">daniel@website.com</span><br>
+                          <span class="text-muted">999 - 444 - 555</span>
+                      </td>
+                      <td>
+                          <span class="text-muted">15 Mar 1988</span><br>
+                          <span class="text-muted">10: 55 AM</span>
+                      </td>
+                      <td><span class="badge badge-success m-0" style="padding: 5px;">Active</span></td>
+                      <td>
+                        <button type="button" class="btn btn-outline-info btn-circle btn-lg btn-circle"><i class="fa fa-key"></i> </button>
+                        <button type="button" class="btn btn-outline-info btn-circle btn-lg btn-circle ml-2"><i class="fa fa-trash"></i> </button>
+                        <button type="button" class="btn btn-outline-info btn-circle btn-lg btn-circle ml-2"><i class="fa fa-edit"></i> </button>
+                        <button type="button" class="btn btn-outline-info btn-circle btn-lg btn-circle ml-2"><i class="fa fa-upload"></i> </button>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+      
+  </div>
+</section>
+
+<script>
+ let sidebar = document.querySelector(".sidebar");
+let sidebarBtn = document.querySelector(".sidebarBtn");
+sidebarBtn.onclick = function() {
+sidebar.classList.toggle("active");
+if(sidebar.classList.contains("active")){
+sidebarBtn.classList.replace("bx-menu" ,"bx-menu-alt-right");
+}else
+sidebarBtn.classList.replace("bx-menu-alt-right", "bx-menu");
+}
+</script>
+
