@@ -1,5 +1,6 @@
 import {Component, ViewChild, OnInit, AfterViewInit} from '@angular/core';
 import {NavbarComponent} from './navbar/navbar.component';
+import { environment } from './../environments/environment';
 
 @Component({
   selector: 'app-root',

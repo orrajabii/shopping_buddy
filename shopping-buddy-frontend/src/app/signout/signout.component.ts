@@ -58,6 +58,10 @@ SaveItem() {
   
 }
 
+// async logout() {
+//   await axios.post(apiUrl+
+// }
+
 ModifyItem() {
   var name1 = document.getElementById("pname1");
   var data1 = document.getElementById("data1");
