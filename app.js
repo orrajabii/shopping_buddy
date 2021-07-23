@@ -65,10 +65,7 @@ function initial() {
     }
   });
 }
-<<<<<<< HEAD
-=======
 
 app.listen(port, () => console.log(`App running at port ${port}`))
->>>>>>> e83f098267e5b3ec42bb8b5e1a55682d2065905c
 
 export default app
