@@ -7,9 +7,8 @@ const Role = db.role;
 
 export function signup(req, res) {
 	const user = new User({
-		username: req.body.username,
+		name: req.body.name,
 		email: req.body.email,
-		address: req.body.address,
 		password: bcrypt.hashSync(req.body.password, 8)
 	});
 
@@ -66,7 +65,7 @@ export function signup(req, res) {
 
 export function signin(req, res) {
 	User.findOne({
-		username: req.body.username
+		email: req.body.email,
 	})
 		.populate("roles", "-__v")
 		.exec((err, user) => {
@@ -102,7 +101,7 @@ export function signin(req, res) {
 			}
 			res.status(200).send({
 				id: user._id,
-				username: user.username,
+				name: user.name,
 				email: user.email,
 				roles: authorities,
 				accessToken: token

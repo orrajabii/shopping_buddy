@@ -11,6 +11,8 @@ const UserSettings = function (app) {
     next();
   });
 
+  app.get('/api/users/', [authJwt.verifyToken, authJwt.isAdmin], userController.getAllUsers);
+  app.get('/api/user/:id', [authJwt.verifyToken, authJwt.isAdmin], userController.getOneUser);
   app.delete("/api/user/:id", [authJwt.verifyToken], userController.deleteUser);
   app.put("/api/user/:id", [authJwt.verifyToken], userController.updateUser);
   app.post("/api/changePassword/:id", [authJwt.verifyToken], userController.changePassword);
