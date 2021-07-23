@@ -1,1 +1,0 @@
-Includes frontend code for Shopping Buddy Website
