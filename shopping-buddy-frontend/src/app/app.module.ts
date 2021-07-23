@@ -72,7 +72,7 @@ import { PaymentHistoryComponent } from './payment-history/payment-history.compo
     BrowserModule,
     FormsModule,
     HttpModule,
-    HttpCl
+    // HttpClient,
     // HttpClientModule,
     RouterModule.forRoot([
       {path:'', redirectTo:'home', pathMatch:'full'},
