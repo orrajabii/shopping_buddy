@@ -34,6 +34,7 @@ import { OrderHistoryComponent } from './order-history/order-history.component';
 import { TeamMemberComponent } from './team-member/team-member.component';
 import { AdminMessagesComponent } from './admin-messages/admin-messages.component';
 import { PaymentHistoryComponent } from './payment-history/payment-history.component';
+// import { HttpClientModule } from '@angular/common/';
 
 
 @NgModule({
@@ -71,6 +72,8 @@ import { PaymentHistoryComponent } from './payment-history/payment-history.compo
     BrowserModule,
     FormsModule,
     HttpModule,
+    HttpCl
+    // HttpClientModule,
     RouterModule.forRoot([
       {path:'', redirectTo:'home', pathMatch:'full'},
       {path:'home', component: HomepageComponent},

@@ -1,6 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { CheckoutComponent } from './checkout.component';
+const https = require('https');
 
 describe('CheckoutComponent', () => {
   let component: CheckoutComponent;
@@ -22,4 +23,5 @@ describe('CheckoutComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
 });
