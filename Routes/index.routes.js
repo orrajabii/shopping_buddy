@@ -9,7 +9,6 @@ const routes = (app) => {
     AuthRoute(app)
     UserSettings(app)
     ShopRoutes(app)
-    // RetailerRoute(app)
     ProductRoutes(app)
     productCatRoutes(app)
 }
