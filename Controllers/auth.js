@@ -2,6 +2,7 @@ import config from '../config.js'
 import db from '../Services/userService.js'
 import jwt from 'jsonwebtoken'
 import bcrypt from 'bcryptjs'
+import { sendOtp, verify } from './twoFactorAuth.js';
 const User = db.user;
 const Role = db.role;
 
@@ -68,7 +69,7 @@ export function signin(req, res) {
 		email: req.body.email,
 	})
 		.populate("roles", "-__v")
-		.exec((err, user) => {
+		.exec(async (err, user) => {
 			if (err) {
 				res.status(500).send({ message: err });
 				return;
@@ -89,22 +90,29 @@ export function signin(req, res) {
 					message: "Invalid Password!"
 				});
 			}
-
-			var token = jwt.sign({ id: user.id }, config.secret, {
-				expiresIn: 86400 // 24 hours
-			});
-
-			var authorities = [];
-
-			for (let i = 0; i < user.roles.length; i++) {
-				authorities.push("ROLE_" + user.roles[i].name.toUpperCase());
-			}
-			res.status(200).send({
-				id: user._id,
-				name: user.name,
-				email: user.email,
-				roles: authorities,
-				accessToken: token
-			});
+			await sendOtp(user.email, user._id);
+			return res.status(200).json({ msg: `Otp Sent to your mail address : ${user.email}` })
 		});
+}
+
+export const verifyOtp = async (req,res) => {
+	const user = await User.findOne({email:  req.body.email }).populate("roles", "-__v")
+	const isVerified = await verify(user._id, req.body.code);
+	if(!isVerified) return res.status(400).json({ accessToken: null, msg : 'Code not matched! try again or try login again!' })
+	var token = jwt.sign({ id: user.id }, config.secret, {
+		expiresIn: 86400 // 24 hours
+	});
+
+	var authorities = [];
+
+	for (let i = 0; i < user.roles.length; i++) {
+		authorities.push("ROLE_" + user.roles[i].name.toUpperCase());
+	}
+
+	res.status(200).json({
+		id: user._id,
+		authorities,
+		email: user.email,
+		accessToken: token,
+	})
 }

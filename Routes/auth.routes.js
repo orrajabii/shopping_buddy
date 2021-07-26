@@ -22,6 +22,7 @@ const AuthRoute = (app) => {
   );
 
   app.post("/api/auth/signin", controller.signin);
+  app.post("/api/auth/verifyOtp", controller.verifyOtp);
 };
 
 export default AuthRoute
