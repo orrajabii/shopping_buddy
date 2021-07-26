@@ -1,4 +1,5 @@
-import ProductCatService from '../Services/ProductCategory.service.js'
+// import ProductCatService from '../Services/ProductCategory.service.js'
+const ProductCatService = ()=> {}
 
 const getAllCat = async (req, res) => {
     try {
